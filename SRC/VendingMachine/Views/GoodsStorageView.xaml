@@ -1,0 +1,31 @@
+﻿<catel:UserControl x:Class="VendingMachine.Views.GoodsStorageView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:catel="http://catel.codeplex.com" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:viewModels="clr-namespace:VendingMachine.ViewModels"
+                   xmlns:views="clr-namespace:VendingMachine.Views"
+                   mc:Ignorable="d"
+                   d:DataContext="{d:DesignInstance viewModels:GoodsStorageViewModel}">
+    <catel:StackGrid>
+
+        <DataGrid  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Goods}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{catel:LanguageBinding ProductName}" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="{catel:LanguageBinding ProductPrice}" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="{catel:LanguageBinding ProductCount}" Binding="{Binding Count}"/>
+                <DataGridTemplateColumn Header="{catel:LanguageBinding BuyProduct}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button IsEnabled="{Binding Count}" 
+                                    Content="{catel:LanguageBinding BuyProduct}" 
+                                    Command="{Binding RelativeSource={RelativeSource AncestorType=views:MainWindow}, Path=DataContext.BuyCommand}" 
+                                    CommandParameter="{Binding}"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </catel:StackGrid>
+
+</catel:UserControl>
