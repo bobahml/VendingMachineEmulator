@@ -54,7 +54,7 @@
             </StackPanel>
 
             <GroupBox Header="{catel:LanguageBinding GoodsTitle}">
-                <views:GoodsStorageView DataContext="{Binding GoodsStorage}"/>
+                <views:GoodsView DataContext="{Binding Goods}"/>
             </GroupBox>
 
         </catel:StackGrid>

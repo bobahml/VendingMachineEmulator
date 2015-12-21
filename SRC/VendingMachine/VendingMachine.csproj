@@ -75,10 +75,10 @@
     <Compile Include="Services\Interfaces\LocalizedMessageService.cs" />
     <Compile Include="Services\LocalizedMessageService.cs" />
     <Compile Include="Services\SystemInitializer.cs" />
-    <Compile Include="ViewModels\GoodsStorageViewModel.cs" />
+    <Compile Include="ViewModels\GoodsViewModel.cs" />
     <Compile Include="ViewModels\WalletViewModel.cs" />
-    <Compile Include="Views\GoodsStorageView.xaml.cs">
-      <DependentUpon>GoodsStorageView.xaml</DependentUpon>
+    <Compile Include="Views\GoodsView.xaml.cs">
+      <DependentUpon>GoodsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WalletView.xaml.cs">
       <DependentUpon>WalletView.xaml</DependentUpon>
@@ -87,7 +87,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GoodsStorageView.xaml">
+    <Page Include="Views\GoodsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using Catel.Data;
+﻿using System.Linq;
+using Catel.Data;
 using VendingMachine.Models;
 using VendingMachine.Services.Interfaces;
 using VendingMachineBL;
@@ -23,7 +24,7 @@ namespace VendingMachine.ViewModels
             _vendingMachineChangeCalculator = vendingMachineChangeCalculator;
             _messageService = messageService;
 
-            GoodsStorage = new GoodsStorageViewModel(_systemInitializer.GetProducts());
+  
         }
 
         public override string Title { get { return "Vending Machine Emulator"; } }
@@ -43,7 +44,7 @@ namespace VendingMachine.ViewModels
         /// UserWallet property data.
         /// </summary>
         public static readonly PropertyData UserWalletProperty = RegisterProperty("UserWallet", typeof(WalletViewModel),
-            () => new WalletViewModel { CanUserChange = true });
+            () => new WalletViewModel ());
 
         #endregion
 
@@ -84,21 +85,28 @@ namespace VendingMachine.ViewModels
 
         #endregion
 
-        #region GoodsStorage property
+
+        public int GetSystemBalance()
+        {
+            var sb = SystemWallet.Coins.Sum(c => c.Count*c.Denomination) - UserBalance;
+            return sb;
+        }
+
+        #region Goods property
 
         /// <summary>
-        /// Gets or sets the GoodsStorage value.
+        /// Gets or sets the Goods value.
         /// </summary>
-        public GoodsStorageViewModel GoodsStorage
+        public GoodsViewModel Goods
         {
-            get { return GetValue<GoodsStorageViewModel>(GoodsStorageProperty); }
-            set { SetValue(GoodsStorageProperty, value); }
+            get { return GetValue<GoodsViewModel>(GoodsProperty); }
+            set { SetValue(GoodsProperty, value); }
         }
 
         /// <summary>
-        /// GoodsStorage property data.
+        /// Goods property data.
         /// </summary>
-        public static readonly PropertyData GoodsStorageProperty = RegisterProperty("GoodsStorage", typeof(GoodsStorageViewModel));
+        public static readonly PropertyData GoodsProperty = RegisterProperty("Goods", typeof(GoodsViewModel));
 
         #endregion
 
@@ -194,7 +202,7 @@ namespace VendingMachine.ViewModels
 
                 if (UserBalance < p.Price)
                 {
-                    await _messageService.ShowAsync("NotEnoughMoneyMessage");
+                    await _messageService.ShowWarningAsync("NotEnoughMoneyMessage");
                     return;
                 }
 
@@ -251,10 +259,13 @@ namespace VendingMachine.ViewModels
         {
             await base.InitializeAsync();
 
-            var userCoins = _systemInitializer.GetUserCoins();
+            var products = _systemInitializer.GetProducts() ?? new Product[0];
+            Goods = new GoodsViewModel(products);
+
+            var userCoins = _systemInitializer.GetUserCoins() ?? new VendingMachineBL.Coin[0];
             UserWallet.SetCoins(userCoins);
 
-            var systemCoins = _systemInitializer.GetSystemCoins();
+            var systemCoins = _systemInitializer.GetSystemCoins() ?? new VendingMachineBL.Coin[0];
             SystemWallet.SetCoins(systemCoins);
         }
 

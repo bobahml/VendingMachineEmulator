@@ -38,6 +38,10 @@
       <HintPath>..\VendingMachine\packages\Catel.MVVM.4.4.0\lib\net45\Catel.MVVM.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -73,6 +77,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachineBL\VendingMachineBL.csproj">
+      <Project>{9B5249A5-B776-48EB-A81C-D3C6AED7B1A3}</Project>
+      <Name>VendingMachineBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VendingMachine\VendingMachine.csproj">
+      <Project>{EEC82A74-2E49-4205-8AB0-40ED7435DC5A}</Project>
+      <Name>VendingMachine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

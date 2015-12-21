@@ -157,7 +157,7 @@
     <value>Стоимость</value>
   </data>
   <data name="SuccessMessage" xml:space="preserve">
-    <value>Спасибо</value>
+    <value>Спасибо!</value>
   </data>
   <data name="SystemWalletTitle" xml:space="preserve">
     <value>Кошелек VM</value>
@@ -167,5 +167,8 @@
   </data>
   <data name="UserWalletTitle" xml:space="preserve">
     <value>Кошелек пользователя</value>
+  </data>
+  <data name="WarningTitle" xml:space="preserve">
+    <value>Внимание</value>
   </data>
 </root>

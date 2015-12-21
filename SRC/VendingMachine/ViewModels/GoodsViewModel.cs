@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Catel.Data;
 using VendingMachine.Models;
@@ -6,10 +7,11 @@ using Catel.MVVM;
 
 namespace VendingMachine.ViewModels
 {
-    public class GoodsStorageViewModel : ViewModelBase
+    public class GoodsViewModel : ViewModelBase
     {
-        public GoodsStorageViewModel(IEnumerable<Product> products)
+        public GoodsViewModel(IEnumerable<Product> products)
         {
+            if (products == null) throw new ArgumentNullException("products");
             Goods = new ObservableCollection<Product>(products);
         }
 

@@ -8,7 +8,7 @@ namespace VendingMachineBL.Tests
         public static bool Expects(IList<Coin> coins, int denomination, int count)
         {
             var c = coins.FirstOrDefault(x => x.Denomination == denomination);
-            return c == null ? false : c.Count == count;
+            return c != null && c.Count == count;
         }
     }
 }

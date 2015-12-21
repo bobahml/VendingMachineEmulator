@@ -168,4 +168,7 @@
   <data name="UserWalletTitle" xml:space="preserve">
     <value>UserWalletTitle</value>
   </data>
+  <data name="WarningTitle" xml:space="preserve">
+    <value>WarningTitle</value>
+  </data>
 </root>

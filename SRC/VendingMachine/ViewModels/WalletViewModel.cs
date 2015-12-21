@@ -31,23 +31,7 @@ namespace VendingMachine.ViewModels
 
 
 
-        #region CanUserChange property
 
-        /// <summary>
-        /// Gets or sets the CanUserChange value.
-        /// </summary>
-        public bool CanUserChange
-        {
-            get { return GetValue<bool>(CanUserChangeProperty); }
-            set { SetValue(CanUserChangeProperty, value); }
-        }
-
-        /// <summary>
-        /// CanUserChange property data.
-        /// </summary>
-        public static readonly PropertyData CanUserChangeProperty = RegisterProperty("CanUserChange", typeof(bool));
-
-        #endregion
 
 
         public IList<VendingMachineBL.Coin> CopyCoins()

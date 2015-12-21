@@ -212,5 +212,14 @@ namespace VendingMachine.Properties {
                 return ResourceManager.GetString("UserWalletTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WarningTitle.
+        /// </summary>
+        internal static string WarningTitle {
+            get {
+                return ResourceManager.GetString("WarningTitle", resourceCulture);
+            }
+        }
     }
 }

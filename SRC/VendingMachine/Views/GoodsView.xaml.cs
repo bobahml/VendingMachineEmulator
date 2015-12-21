@@ -1,8 +1,8 @@
 ﻿namespace VendingMachine.Views
 {
-    public partial class GoodsStorageView
+    public partial class GoodsView
     {
-        public GoodsStorageView()
+        public GoodsView()
         {
             InitializeComponent();
         }

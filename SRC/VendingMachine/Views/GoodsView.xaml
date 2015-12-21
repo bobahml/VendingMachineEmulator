@@ -1,4 +1,4 @@
-﻿<catel:UserControl x:Class="VendingMachine.Views.GoodsStorageView"
+﻿<catel:UserControl x:Class="VendingMachine.Views.GoodsView"
                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:catel="http://catel.codeplex.com" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
                    xmlns:viewModels="clr-namespace:VendingMachine.ViewModels"
                    xmlns:views="clr-namespace:VendingMachine.Views"
                    mc:Ignorable="d"
-                   d:DataContext="{d:DesignInstance viewModels:GoodsStorageViewModel}">
+                   d:DataContext="{d:DesignInstance viewModels:GoodsViewModel}">
     <catel:StackGrid>
 
         <DataGrid  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Goods}">
